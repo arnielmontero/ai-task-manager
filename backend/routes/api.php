@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\AiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,5 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logo
 Route::middleware('auth:sanctum')->group(function() { 
     Route::apiResource('projects', ProjectController::class);
     Route::apiResource('projects.tasks', TaskController::class);
+    Route::post('/ai/suggest-tasks', [AiController::class, 'suggestTasks']);
 });
